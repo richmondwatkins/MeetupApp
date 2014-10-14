@@ -27,7 +27,7 @@
     [self.descriptionWebView loadHTMLString:[NSString stringWithFormat:@"%@", self.meetup[@"description"]] baseURL:nil];
 
     NSNumber *rsvps = (NSNumber *) self.meetup[@"yes_rsvp_count"];
-    self.rsvpsLabel.text = [NSString stringWithFormat:@"%d", [rsvps intValue]];
+    self.rsvpsLabel.text = [NSString stringWithFormat:@"%d RSVPs", [rsvps intValue]];
     self.hostingLabel.text = self.meetup[@"group"][@"name"];
 
 
@@ -48,7 +48,7 @@
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
     NSDictionary *comment = [self.comments objectAtIndex:indexPath.row];
 
-//    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.numberOfLines = 0;
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@ -%@",comment[@"comment"], comment[@"member_name"]];
     cell.detailTextLabel.text = [self formatTime:comment[@"time"]];
@@ -56,12 +56,6 @@
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSDictionary *content = [self.comments objectAtIndex:indexPath.row];
-//    NSString * text = content[@"comment"];
-//    CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize: 14.0] forWidth:[tableView frame].size.width - 40.0 lineBreakMode:UILineBreakModeWordWrap];
-//    return textSize.height < 44.0 ? 44.0 : textSize.height;
-//}
 
 
 -(NSString *)formatTime:(NSNumber *)timeMil{
