@@ -115,7 +115,7 @@ return YES;
 
         }
         else {
-            NSIndexPath *indexPath = indexPath = [self.tableView indexPathForSelectedRow];
+            NSIndexPath *indexPath =  [self.tableView indexPathForSelectedRow];
             detailCtrl.meetup = [self.meetups objectAtIndex:indexPath.row];
         }
 
