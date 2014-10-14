@@ -7,11 +7,13 @@
 //
 
 #import "ProfileViewController.h"
-
-@interface ProfileViewController ()
+@interface ProfileViewController () <UITableViewDataSource,UITableViewDelegate>
 @property NSDictionary *profileInfo;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *avatarImage;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property NSArray *topics;
 @end
 
 @implementation ProfileViewController
@@ -25,13 +27,16 @@
         self.profileInfo = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@", self.profileInfo);
         self.nameLabel.text = self.profileInfo[@"name"];
-        [self loadProfile];
+        self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.profileInfo[@"city"], self.profileInfo[@"country"]];
+        self.topics = self.profileInfo[@"topics"];
+        [self.tableView reloadData];
+        [self loadProfilePhoto];
     }];
 
 }
 
--(void)loadProfile{
-    NSURL *url=[NSURL URLWithString:self.profileInfo[@"photo"][@"photo_link"]];
+-(void)loadProfilePhoto{
+    NSURL *url=[NSURL URLWithString:self.profileInfo[@"photo"][@"highres_link"]];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
 
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
@@ -39,6 +44,17 @@
          UIImage *imagemain=[UIImage imageWithData:data];
         self.avatarImage.image=imagemain;
      }];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.topics.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
+    NSDictionary *topic = [self.topics objectAtIndex:indexPath.row];
+    cell.textLabel.text = topic[@"name"];
+    return cell;
 }
 
 

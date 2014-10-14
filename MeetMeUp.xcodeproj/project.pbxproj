@@ -197,6 +197,39 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				ca,
+				cs,
+				da,
+				de,
+				el,
+				en_GB,
+				es,
+				fi,
+				fr,
+				he,
+				hr,
+				hu,
+				id,
+				it,
+				ja,
+				ko,
+				ms,
+				nl,
+				no,
+				pl,
+				pt,
+				pt_PT,
+				ro,
+				ru,
+				sk,
+				sv,
+				th,
+				tr,
+				uk,
+				vi,
+				zh_CN,
+				zh_TW,
 			);
 			mainGroup = 5D0AC90F19EC605500FFA653;
 			productRefGroup = 5D0AC91919EC605500FFA653 /* Products */;
@@ -361,6 +394,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MeetMeUp/GoogleMaps-iOS-1.8.1",
+					"$(PROJECT_DIR)/MeetMeUp/GoogleMaps-iOS-1.8.1/GoogleMapsSDKDemos",
+					"/Users/richmondwatkins/Downloads/GoogleMaps-iOS-1.8.1",
+					"/Users/richmondwatkins/Downloads/GoogleMaps-iOS-1.8.1/GoogleMapsSDKDemos",
+				);
 				INFOPLIST_FILE = MeetMeUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -371,6 +411,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MeetMeUp/GoogleMaps-iOS-1.8.1",
+					"$(PROJECT_DIR)/MeetMeUp/GoogleMaps-iOS-1.8.1/GoogleMapsSDKDemos",
+					"/Users/richmondwatkins/Downloads/GoogleMaps-iOS-1.8.1",
+					"/Users/richmondwatkins/Downloads/GoogleMaps-iOS-1.8.1/GoogleMapsSDKDemos",
+				);
 				INFOPLIST_FILE = MeetMeUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
