@@ -14,6 +14,8 @@
 		5D0AC92919EC605500FFA653 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0AC92819EC605500FFA653 /* Images.xcassets */; };
 		5D0AC92C19EC605500FFA653 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0AC92A19EC605500FFA653 /* LaunchScreen.xib */; };
 		5D0AC93819EC605500FFA653 /* MeetMeUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0AC93719EC605500FFA653 /* MeetMeUpTests.m */; };
+		5D5975E619EC70D9008891E0 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5975E519EC70D9008891E0 /* WebViewController.m */; };
+		5D922E3419EC6A8C0088E049 /* DetailMeetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D922E3319EC6A8C0088E049 /* DetailMeetupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		5D0AC93119EC605500FFA653 /* MeetMeUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0AC93619EC605500FFA653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D0AC93719EC605500FFA653 /* MeetMeUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeUpTests.m; sourceTree = "<group>"; };
+		5D5975E419EC70D9008891E0 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = ../WebViewController.h; sourceTree = "<group>"; };
+		5D5975E519EC70D9008891E0 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = ../WebViewController.m; sourceTree = "<group>"; };
+		5D922E3219EC6A8C0088E049 /* DetailMeetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailMeetupViewController.h; path = ../DetailMeetupViewController.h; sourceTree = "<group>"; };
+		5D922E3319EC6A8C0088E049 /* DetailMeetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailMeetupViewController.m; path = ../DetailMeetupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,10 @@
 		5D0AC91A19EC605500FFA653 /* MeetMeUp */ = {
 			isa = PBXGroup;
 			children = (
+				5D5975E419EC70D9008891E0 /* WebViewController.h */,
+				5D5975E519EC70D9008891E0 /* WebViewController.m */,
+				5D922E3219EC6A8C0088E049 /* DetailMeetupViewController.h */,
+				5D922E3319EC6A8C0088E049 /* DetailMeetupViewController.m */,
 				5D0AC91F19EC605500FFA653 /* AppDelegate.h */,
 				5D0AC92019EC605500FFA653 /* AppDelegate.m */,
 				5D0AC92219EC605500FFA653 /* ViewController.h */,
@@ -220,6 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0AC92419EC605500FFA653 /* ViewController.m in Sources */,
+				5D5975E619EC70D9008891E0 /* WebViewController.m in Sources */,
+				5D922E3419EC6A8C0088E049 /* DetailMeetupViewController.m in Sources */,
 				5D0AC92119EC605500FFA653 /* AppDelegate.m in Sources */,
 				5D0AC91E19EC605500FFA653 /* main.m in Sources */,
 			);
@@ -412,6 +424,7 @@
 				5D0AC93D19EC605500FFA653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5D0AC93E19EC605500FFA653 /* Build configuration list for PBXNativeTarget "MeetMeUpTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +433,7 @@
 				5D0AC94019EC605500FFA653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
