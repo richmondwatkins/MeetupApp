@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "DetailMeetupViewController.h"
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchControllerDelegate>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchControllerDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray *meetups;
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *searchController;
@@ -89,17 +89,19 @@ return YES;
     return 71;
 }
 
-//-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    DetailMeetupViewController *detailCtrl = [[DetailMeetupViewController alloc] init];
-//
-//    if (self.searchDisplayController.searchResultsTableView) {
-//        detailCtrl.meetup = [self.searchResults objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-//    } else {
-//        detailCtrl.meetup = [self.meetups objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-//    }
-//
-//    [self.navigationController pushViewController:detailCtrl animated:YES];
-//}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    NSString *searchEntry = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=60604&text=%@&time=,1w&key=477d1928246a4e162252547b766d3c6d", searchEntry]]];
+
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        self.meetups = results[@"results"];
+        [self.tableView reloadData];
+    }];
+
+    return YES;
+}
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

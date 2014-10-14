@@ -46,8 +46,7 @@
     NSDictionary *comment = [self.comments objectAtIndex:indexPath.row];
 
     cell.textLabel.numberOfLines = 0;
-    
-    UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(200, 30, 140, 20)];
+    UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 140, 20)];
 
     timeLabel.text = [self formatTime:comment[@"time"]];
     timeLabel.font= [timeLabel.font fontWithSize:10];
@@ -61,16 +60,15 @@
     return cell;
 }
 
--(NSString *)formatTime:(NSNumber *)time{
 
-//    NSString *dateValue = [NSString stringWithFormat:@"%i", time.intValue];
-//
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    NSString *formatString = @"yyyy-MM-dd'T'HH:mm:ss.SSS";
 
-    NSDate *tr = [NSDate dateWithTimeIntervalSince1970:time.intValue];
-    NSLog(@"%@", time);
-    return nil;
+-(NSString *)formatTime:(NSNumber *)timeMil{
+
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:([timeMil doubleValue] / 1000.0)];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy"];
+    NSString *resultString = [formatter stringFromDate:date];
+    return resultString;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
